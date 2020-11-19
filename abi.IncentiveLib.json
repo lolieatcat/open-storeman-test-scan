@@ -1,0 +1,193 @@
+[
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "groupId",
+          "type": "bytes32"
+        },
+        {
+          "indexed": true,
+          "name": "wkAddr",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "finished",
+          "type": "bool"
+        },
+        {
+          "indexed": false,
+          "name": "from",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "end",
+          "type": "uint256"
+        }
+      ],
+      "name": "incentiveEvent",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "groupId",
+          "type": "bytes32"
+        },
+        {
+          "indexed": true,
+          "name": "count",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "members",
+          "type": "address[]"
+        }
+      ],
+      "name": "selectedEvent",
+      "type": "event"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "data",
+          "type": "StoremanType.StoremanData storage"
+        },
+        {
+          "name": "chain1",
+          "type": "uint256"
+        },
+        {
+          "name": "chain2",
+          "type": "uint256"
+        }
+      ],
+      "name": "getChainTypeCo",
+      "outputs": [
+        {
+          "name": "co",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "day",
+          "type": "uint256"
+        },
+        {
+          "name": "sk",
+          "type": "StoremanType.Candidate storage"
+        },
+        {
+          "name": "group",
+          "type": "StoremanType.StoremanGroup storage"
+        },
+        {
+          "name": "data",
+          "type": "StoremanType.StoremanData storage"
+        }
+      ],
+      "name": "incentiveNode",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "day",
+          "type": "uint256"
+        },
+        {
+          "name": "sk",
+          "type": "StoremanType.Candidate storage"
+        },
+        {
+          "name": "group",
+          "type": "StoremanType.StoremanGroup storage"
+        },
+        {
+          "name": "data",
+          "type": "StoremanType.StoremanData storage"
+        }
+      ],
+      "name": "incentiveDelegator",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "data",
+          "type": "StoremanType.StoremanData storage"
+        },
+        {
+          "name": "wkAddr",
+          "type": "address"
+        },
+        {
+          "name": "metricAddr",
+          "type": "address"
+        }
+      ],
+      "name": "incentiveCandidator",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "data",
+          "type": "StoremanType.StoremanData storage"
+        },
+        {
+          "name": "group",
+          "type": "StoremanType.StoremanGroup storage"
+        }
+      ],
+      "name": "setGroupDeposit",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "data",
+          "type": "StoremanType.StoremanData storage"
+        },
+        {
+          "name": "groupId",
+          "type": "bytes32"
+        }
+      ],
+      "name": "toSelect",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ]
