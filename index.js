@@ -8,7 +8,7 @@ const rpc = 'http://192.168.1.2:8545';
 
 const web3 = new Web3(new Web3.providers.HttpProvider(rpc));
 
-const fromBlock = 9638000;
+const fromBlock = 9000000;
 
 const toBlock = 10342800;
 
@@ -17,7 +17,8 @@ async function main() {
   // await getAllCrossChain();
   // await getAllStakeIn();
   // await getAllStakeOut();
-  await getAllWorkList();
+  // await getAllWorkList();
+  await getDailyWork();
 }
 
 main();
@@ -165,7 +166,8 @@ async function getAllWorkList() {
     const a = result.find(v=>v.wkAddr === w.wkAddr);
     if (a) {
       final.push({
-        address: a.from
+        address: a.from,
+        wkAddr: a.wkAddr
       });
     } else {
       old.push({
@@ -178,3 +180,22 @@ async function getAllWorkList() {
   console.log('done, total', final.length);
   console.log('old', old.length);
 }
+
+
+async function getDailyWork() {
+  const smgScAddr = '0xaa5a0f7f99fa841f410aafd97e8c435c75c22821';
+  let sc = new web3.eth.Contract(smgAbi, smgScAddr);
+
+  sc = new web3.eth.Contract(incentiveAbi, smgScAddr);
+  ret = await sc.getPastEvents('incentiveEvent', { fromBlock, toBlock });
+  let result2 = [];
+  for (let i=0; i<ret.length; i++) {
+    result2.push({
+      wkAddr: ret[i].returnValues.wkAddr,
+    });
+  }
+
+  fs.writeFileSync('./DailyWorkList.json', JSON.stringify(result2, null, 2));
+  console.log('done, total', result2.length);
+}
+
