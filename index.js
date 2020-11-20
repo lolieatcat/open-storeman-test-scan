@@ -18,7 +18,7 @@ async function main() {
   // await getAllStakeIn();
   // await getAllStakeOut();
   // await getAllWorkList();
-  await getDailyWork();
+  // await getDailyWork();
 }
 
 main();
